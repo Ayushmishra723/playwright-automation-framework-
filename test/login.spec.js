@@ -1,9 +1,23 @@
 import { test, expect } from "@playwright/test"
+import{login,logout} from "../utils/authhelper.js"
+test.beforeEach(async({page}) =>{
+    console.log("before each started")
+ await login(page);
+
+
+})
+
+
+
 test("validation of login page",async({page})=>
 {
-    test.setTimeout(60000);
-    await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login" )
-    await page.getByPlaceholder("username").type("ayush")
-    await page.locator("input[name='password']").type("admin123")
-    await page.locator("button[type='submit']").click();
+   console.log("test cases is running")
+    await expect(page).toHaveURL(/dashboard/);  
+    
+})
+
+test.afterEach(async({page})=>{
+await logout(page);
+
+
 })
