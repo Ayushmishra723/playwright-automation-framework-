@@ -9,6 +9,6 @@ export async function login(page)
 
 export async function logout(page)
 {
-     await page.getByAltText("profile picture").click();
+     await page.locator(".oxd-userdropdown-img").click();
     await page.getByText("Logout").click();
 }

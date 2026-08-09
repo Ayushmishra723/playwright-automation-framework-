@@ -13,6 +13,7 @@ test("validation of login page",async({page})=>
 {
    console.log("test cases is running")
     await expect(page).toHaveURL(/dashboard/);  
+    console.log("ye wlai ke pahle dekho ");
     
 })
 

@@ -51,7 +51,7 @@ test("verify Upgrade opens in new tab", async ({ page }) => {
 
     console.log("Total tabs:", pages.length);
 
-
+//await  page.brintTOFront();
     // STEP 8
     // Child tab close
     await newPage.close();
