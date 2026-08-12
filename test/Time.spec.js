@@ -12,7 +12,11 @@ test.beforeEach(async ({page}) => {
 
 
 });
+test.afterEach(async({page})=>{
+    await  logout(page);
+    
 
+})
 
 test("to test time " ,async({page}) =>{
 await page.getByRole('link', { name: 'Time' }).click();

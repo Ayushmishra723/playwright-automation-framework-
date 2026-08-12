@@ -1,24 +1,11 @@
-import { test, expect } from "@playwright/test"
-import{login,logout} from "../utils/authhelper.js"
-test.beforeEach(async({page}) =>{
-    console.log("before each started")
- await login(page);
+import { test, expect } from "../fixture/baseTest.js";
 
+test("validation of login page", async ({ authenticatedPage }) => {
 
-})
+    console.log("test case is running");
 
+    await expect(authenticatedPage).toHaveURL(/dashboard/);
 
+    console.log("test completed");
 
-test("validation of login page",async({page})=>
-{
-   console.log("test cases is running")
-    await expect(page).toHaveURL(/dashboard/);  
-    console.log("ye wlai ke pahle dekho ");
-    
-})
-
-test.afterEach(async({page})=>{
-await logout(page);
-
-
-})
+});

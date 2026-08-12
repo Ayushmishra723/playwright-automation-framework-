@@ -8,6 +8,12 @@ test.beforeEach(async ({ page }) => {
     await expect(page).toHaveURL(/dashboard/);
 });
 
+test.afterEach(async({apge})=>{
+    await  logout(page);
+    
+
+})
+
 
 test("verify Upgrade opens in new tab", async ({ page }) => {
 
@@ -55,7 +61,9 @@ test("verify Upgrade opens in new tab", async ({ page }) => {
     // STEP 8
     // Child tab close
     await newPage.close();
+  
 
+  
 
     // STEP 9
     // Parent tab still available
