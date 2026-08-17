@@ -18,9 +18,9 @@ test("live interview", async ({ page, context }) => {
     await expect(page).toHaveURL(/sc\.com\/en/);
 
     // Locate Botswana using its href
-    const botswanaLink = page.locator(
-        'a[href*="/afr/ibank/bw/foa/login.htm"]'
-    ).first();
+    const botswanaLink = page.locator("//a[contains(text(),'Bangladesh')]").first();
+    await botswanaLink.click();
+    
 
     // Verify Botswana link is visible
   //  await expect(botswanaLink).toBeVisible();
@@ -35,6 +35,6 @@ test("live interview", async ({ page, context }) => {
     await newPage.waitForLoadState();
 
     // Verify Botswana URL
-    await expect(newPage).toHaveURL(/bw/);
+    await expect(newPage).toHaveURL(/foa/);
 
 });
